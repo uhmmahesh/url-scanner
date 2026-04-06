@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber URL Scanner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="scan-grid"></div>
+  <div class="scan-noise"></div>
+
+  <div class="shell">
+
+    <main class="app">
+      <header class="top-bar">
+        <div class="brand">
+          <div class="brand-icon">
+            <span class="brand-shield"></span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-label">Phishing Detection Tool</span>
+          </div>
+        </div>
+
+        <div class="system-status">
+          <span class="status-dot"></span>
+          <span class="status-text">System Active</span>
+        </div>
+      </header>
+      <header class="app-header">
+        <div class="app-title">
+          <h1>URL Threat Analysis</h1>
+          <p>Run a static risk assessment against a single URL.</p>
+        </div>
+        <div class="app-meta">
+          <span class="badge">URL Scanner</span>
+        </div>
+      </header>
+
+      <section class="scanner">
+        <form id="url-form" class="scanner-form">
+          <label for="url-input" class="scanner-label"> URL Scanner </label>
+          <div class="scanner-row">
+            <div class="scanner-input-group">
+              <input id="url-input" type="text" autocomplete="off" placeholder="Paste or type a URL to scan" />
+            </div>
+            <button type="submit" id="scan-btn">
+              <span class="btn-glow"></span>
+              <span class="btn-label">Scan URL</span>
+            </button>
+          </div>
+          <p class="hint">
+            The scanner performs offline, heuristic checks only. It does not contact the URL or any
+            external service.
+          </p>
+        </form>
+
+        <div class="scanner-status" id="scanner-status">
+          <div class="status-bar">
+            <div class="status-bar-fill" id="status-bar-fill"></div>
+          </div>
+          <div class="status-text-row">
+            <span id="status-label">Idle</span>
+            <span id="status-percent">0%</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" id="results" aria-live="polite">
+        <div class="results-header">
+          <h2>Analysis Results</h2>
+        </div>
+
+        <div class="results-grid">
+          <article class="card card--info" id="card-url-info">
+            <header class="card-header">
+              <div class="card-title-group">
+                <span class="card-icon">🌐</span>
+                <div>
+                  <span class="card-eyebrow">Module 01</span>
+                  <h3>URL Information</h3>
+                </div>
+              </div>
+            </header>
+            <div class="card-body" id="url-info-body">
+              <p class="placeholder">Awaiting scan…</p>
+            </div>
+          </article>
+
+          <article class="card card--threat" id="card-threat-indicators">
+            <header class="card-header">
+              <div class="card-title-group">
+                <span class="card-icon">⚠️</span>
+                <div>
+                  <span class="card-eyebrow">Module 02</span>
+                  <h3>Threat Indicators</h3>
+                </div>
+              </div>
+            </header>
+            <div class="card-body" id="threat-indicators-body">
+              <p class="placeholder">Awaiting scan…</p>
+            </div>
+          </article>
+
+          <article class="card card--spoof" id="card-spoof-detection">
+            <header class="card-header">
+              <div class="card-title-group">
+                <span class="card-icon">🔍</span>
+                <div>
+                  <span class="card-eyebrow">Module 03</span>
+                  <h3>Spoof Detection</h3>
+                </div>
+              </div>
+            </header>
+            <div class="card-body" id="spoof-detection-body">
+              <p class="placeholder">Awaiting scan…</p>
+            </div>
+          </article>
+
+          <article class="card card-risk" id="card-risk-score">
+            <header class="card-header">
+              <div class="card-title-group">
+                <span class="card-icon">📊</span>
+                <div>
+                  <span class="card-eyebrow">Module 04</span>
+                  <h3>Risk Score</h3>
+                </div>
+              </div>
+            </header>
+            <div class="card-body" id="risk-score-body">
+              <div class="risk-score-main">
+                <span class="risk-score-value" id="risk-score-value">–</span>
+                <span class="risk-score-label" id="risk-score-label">No data</span>
+              </div>
+              <div class="risk-meter">
+                <div class="risk-meter-track">
+                  <div class="risk-meter-fill" id="risk-meter-fill"></div>
+                </div>
+                <div class="risk-meter-legend">
+                  <span>0</span>
+                  <span>25</span>
+                  <span>50</span>
+                  <span>75</span>
+                  <span>100</span>
+                </div>
+              </div>
+              <ul class="risk-factors" id="risk-factors"></ul>
+            </div>
+          </article>
+        </div>
+
+        <article class="card card-summary" id="card-summary">
+          <header class="card-header card-header--summary">
+            <h3>Summary</h3>
+          </header>
+          <div class="card-body" id="summary-body">
+            <p class="placeholder">
+              After scanning, a concise summary of the URL’s risk profile will appear here.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Local heuristic URL analysis. Not a replacement for professional security tooling.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

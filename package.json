@@ -1,0 +1,21 @@
+{
+  "name": "cyber-url-scanner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline, heuristic cyber‑themed URL scanner UI.",
+  "scripts": {
+    "start": "echo \"Open index.html in your browser to run the scanner.\""
+  },
+  "keywords": [
+    "security",
+    "url",
+    "scanner",
+    "cyberpunk",
+    "frontend"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
+
